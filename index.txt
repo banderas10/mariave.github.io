@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>María Ve Ideas y Sabores | Mermeladas Artesanales Caseras - Postres y Conservas</title>
+    <meta name="description" content="Mermeladas artesanales caseras, dulce de leche tradicional, postres caseros y conservas gourmet. Productos elaborados a fuego lento con ingredientes frescos. Hacé tu pedido hoy.">
+    <meta name="keywords" content="mermeladas caseras, mermelada artesanal, dulce de leche casero, postres caseros, conservas gourmet, mermelada de frutilla, mermelada de durazno, tortillas caseras, comida casera, productos artesanales">
+    <meta name="author" content="María Ve Ideas y Sabores">
+    <meta name="robots" content="index, follow">
+    <meta name="geo.region" content="AR">
+    <link rel="canonical" href="https://mariave.com.ar">
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="María Ve Ideas y Sabores | Mermeladas Artesanales Caseras">
+    <meta property="og:description" content="Mermeladas artesanales, dulce de leche tradicional y postres caseros. Elaborados a fuego lento con amor y tradición.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FDF6E9',
+                        warm: '#F5E6D3',
+                        honey: '#C4882F',
+                        honeyDark: '#9A6B1F',
+                        terracotta: '#B85C38',
+                        burgundy: '#7B2D26',
+                        forest: '#3D5A45',
+                        forestDark: '#2A3D30',
+                        sand: '#E8DCC8',
+                        charcoal: '#2C2C2C',
+                    },
+                    fontFamily: {
+                        display: ['Playfair Display', 'serif'],
+                        body: ['DM Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        :root {
+            --bg: #FDF6E9;
+            --fg: #2C2C2C;
+            --muted: #8B7355;
+            --accent: #B85C38;
+            --accent-gold: #C4882F;
+            --card: #FFFFFF;
+            --border: #E8DCC8;
+            --forest: #3D5A45;
+        }
+        
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            overflow-x: hidden;
+        }
+        
+        .font-display { font-family: 'Playfair Display', serif; }
+        
+        .bg-texture {
+            background-image: 
+                radial-gradient(ellipse at 20% 0%, rgba(196, 136, 47, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 100%, rgba(184, 92, 56, 0.06) 0%, transparent 50%);
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+        .animate-float { animation: float 4s ease-in-out infinite; }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        
+        .product-card {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .product-card.visible { opacity: 1; transform: translateY(0); }
+        .product-card:hover { transform: translateY(-8px); }
+        .product-card:hover .product-image { transform: scale(1.05); }
+        .product-image { transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        
+        .discount-badge {
+            background: linear-gradient(135deg, #B85C38 0%, #7B2D26 100%);
+            animation: shimmer 3s ease-in-out infinite;
+            background-size: 200% 100%;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--forest) 0%, #2A3D30 100%);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(61, 90, 69, 0.3); }
+        .btn-primary:focus-visible { outline: 3px solid var(--accent-gold); outline-offset: 2px; }
+        
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+        
+        .hero-decoration {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            pointer-events: none;
+        }
+        
+        .category-tab { transition: all 0.3s ease; }
+        .category-tab.active { background: var(--forest); color: white; }
+        .category-tab:not(.active):hover { background: var(--sand); }
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+        
+        .img-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+        }
+    </style>
+</head>
+<body class="bg-texture min-h-screen">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-md border-b border-sand">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <!-- Logo -->
+                <a href="#inicio" class="flex items-center gap-3 group">
+                    <!-- LOGO SVG MARIA VE IDEAS Y SABORES -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
+                        <svg viewBox="0 0 100 100" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="48" fill="#3D5A45" stroke="#C4882F" stroke-width="3"/>
+                            <circle cx="50" cy="50" r="40" stroke="#FDF6E9" stroke-width="1" stroke-dasharray="4 4"/>
+                            <defs>
+                                <path id="circlePath" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"/>
+                            </defs>
+                            <text fill="#FDF6E9" font-size="9" font-family="'Playfair Display', serif" font-weight="600" letter-spacing="2">
+                                <textPath href="#circlePath" startOffset="10%">MARIA VE</textPath>
+                            </text>
+                            <g transform="translate(35, 38)">
+                                <path d="M15 0 C25 10, 25 25, 15 30 C5 25, 5 10, 15 0Z" fill="#C4882F"/>
+                                <path d="M15 5 L15 25" stroke="#3D5A45" stroke-width="1.5"/>
+                            </g>
+                            <text x="50" y="78" fill="#FDF6E9" font-size="6" font-family="'DM Sans', sans-serif" text-anchor="middle" letter-spacing="0.5">
+                                IDEAS Y SABORES
+                            </text>
+                        </svg>
+                    </div>
+                    <div class="hidden sm:block">
+                        <span class="font-display text-lg sm:text-xl font-semibold text-charcoal">Maria Ve</span>
+                        <span class="block text-xs text-muted -mt-1">Ideas y Sabores</span>
+                    </div>
+                </a>
+                
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#productos" class="nav-link text-charcoal font-medium text-sm">Productos</a>
+                    <a href="#ofertas" class="nav-link text-charcoal font-medium text-sm">Ofertas</a>
+                    <a href="#nosotros" class="nav-link text-charcoal font-medium text-sm">Nosotros</a>
+                    <a href="#contacto" class="btn-primary text-white px-5 py-2.5 rounded-full text-sm font-semibold">
+                        Hacer Pedido
+                    </a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-sand transition-colors" aria-label="Abrir menú">
+                    <svg class="w-6 h-6 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-cream border-t border-sand">
+            <div class="px-4 py-6 space-y-4">
+                <a href="#productos" class="block py-2 text-charcoal font-medium">Productos</a>
+                <a href="#ofertas" class="block py-2 text-charcoal font-medium">Ofertas</a>
+                <a href="#nosotros" class="block py-2 text-charcoal font-medium">Nosotros</a>
+                <a href="#contacto" class="btn-primary block text-center text-white px-5 py-3 rounded-full font-semibold">
+                    Hacer Pedido
+                </a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <header id="inicio" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <div class="hero-decoration bg-honey/30 top-20 -left-20"></div>
+        <div class="hero-decoration bg-terracotta/20 bottom-20 right-0"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div class="text-center lg:text-left">
+                    <div class="animate-fade-in-up opacity-0">
+                        <span class="inline-block px-4 py-1.5 bg-forest/10 text-forest text-sm font-semibold rounded-full mb-6">
+                            Elaboracion Artesanal
+                        </span>
+                    </div>
+                    
+                    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-charcoal leading-tight animate-fade-in-up opacity-0 delay-100">
+                        Sabores que 
+                        <span class="text-terracotta">cuentan historias</span>
+                    </h1>
+                    
+                    <p class="mt-6 text-lg sm:text-xl text-muted max-w-xl mx-auto lg:mx-0 animate-fade-in-up opacity-0 delay-200">
+                        Mermeladas artesanales, dulce de leche tradicional y postres caseros. 
+                        Elaborados a fuego lento con ingredientes frescos y mucho amor.
+                    </p>
+                    
+                    <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up opacity-0 delay-300">
+                        <a href="#productos" class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg text-center">
+                            Ver Productos
+                        </a>
+                        <a href="https://wa.me/5491112345678" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-forest text-forest font-semibold hover:bg-forest hover:text-white transition-all">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            Contactar
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Hero Image -->
+                <div class="relative animate-fade-in-up opacity-0 delay-400">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="https://z-cdn-media.chatglm.cn/files/00ab3240-8922-40f5-922f-76e90e7762bc.jpg" alt="Dulce de Leche artesanal MariaVe" class="w-full h-[400px] sm:h-[500px] object-cover" loading="eager">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                        
+                        <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-terracotta/10 rounded-full flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                                </div>
+                                <div>
+                                    <p class="font-display font-semibold text-charcoal">Dulce de Leche MariaVe</p>
+                                    <p class="text-sm text-muted">Elaborado a fuego lento</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Products Section -->
+    <section id="productos" class="py-16 sm:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="inline-block px-4 py-1.5 bg-honey/10 text-honeyDark text-sm font-semibold rounded-full mb-4">Catalogo de Productos</span>
+                <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal">Elaborados con pasion</h2>
+                <p class="mt-4 text-muted text-lg max-w-2xl mx-auto">Cada producto es elaborado artesanalmente con ingredientes frescos y de primera calidad</p>
+            </div>
+            
+            <!-- Category filters -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button class="category-tab active px-5 py-2.5 rounded-full font-medium text-sm border border-sand transition-all" data-category="todos">Todos</button>
+                <button class="category-tab px-5 py-2.5 rounded-full font-medium text-sm border border-sand bg-white transition-all" data-category="mermeladas">Mermeladas</button>
+                <button class="category-tab px-5 py-2.5 rounded-full font-medium text-sm border border-sand bg-white transition-all" data-category="postres">Postres</button>
+                <button class="category-tab px-5 py-2.5 rounded-full font-medium text-sm border border-sand bg-white transition-all" data-category="conservas">Conservas</button>
+                <button class="category-tab px-5 py-2.5 rounded-full font-medium text-sm border border-sand bg-white transition-all" data-category="platos">Platos</button>
+            </div>
+            
+            <!-- Products grid -->
+            <div id="productsGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="nosotros" class="py-16 sm:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="text-center lg:text-left">
+                    <span class="inline-block px-4 py-1.5 bg-forest/10 text-forest text-sm font-semibold rounded-full mb-6">Nuestra Historia</span>
+                    <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal leading-tight">Tradicion familiar en cada recipiente</h2>
+                    <p class="mt-6 text-lg text-muted leading-relaxed">En MariaVe Ideas y Sabores, cada producto cuenta una historia. Comenzamos como un emprendimiento familiar, elaborando mermeladas y dulces con recetas heredadas.</p>
+                    <p class="mt-4 text-lg text-muted leading-relaxed">Hoy seguimos fieles a esa esencia: productos elaborados a fuego lento, sin conservantes artificiales, con ingredientes frescos y de primera calidad.</p>
+                </div>
+                <div class="relative">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="rounded-2xl overflow-hidden shadow-lg">
+                            <img src="https://z-cdn-media.chatglm.cn/files/73927a7a-b535-4630-9caa-e15b8b561812.jpg" alt="Fresas frescas" class="w-full h-48 object-cover" loading="lazy">
+                        </div>
+                        <div class="rounded-2xl overflow-hidden shadow-lg pt-8">
+                            <img src="https://z-cdn-media.chatglm.cn/files/f053dde7-646c-4201-8e01-e55ee10f15f1.jpg" alt="Mermelada de durazno" class="w-full h-32 object-cover" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contacto" class="py-16 sm:py-24 bg-forest">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center text-white">
+                <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">Hace tu pedido ahora</h2>
+                <p class="mt-6 text-lg text-white/80 max-w-2xl mx-auto">Escribinos por WhatsApp y te respondemos al instante.</p>
+                <a href="https://wa.me/5491112345678?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" class="inline-flex items-center gap-3 mt-8 bg-white text-forest px-8 py-4 rounded-full font-semibold text-lg hover:bg-cream transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Enviar WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-charcoal py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex items-center justify-center gap-3 mb-4">
+                <div class="w-8 h-8">
+                     <svg viewBox="0 0 100 100" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="48" fill="#3D5A45" stroke="#C4882F" stroke-width="3"/>
+                        <text x="50" y="55" fill="#FDF6E9" font-size="24" font-family="'Playfair Display', serif" font-weight="700" text-anchor="middle">MV</text>
+                    </svg>
+                </div>
+                <div>
+                    <span class="text-white font-display text-lg font-semibold">Maria Ve</span>
+                    <span class="block text-white/60 text-xs">Ideas y Sabores</span>
+                </div>
+            </div>
+            <p class="text-white/40 text-sm">2024 Maria Ve Ideas y Sabores. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5491112345678?text=Hola!%20Me%20interesa%20conocer%20los%20productos" target="_blank" rel="noopener" class="whatsapp-float w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl" aria-label="Contactar por WhatsApp">
+        <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+    
+    <script>
+        // DATA - Productos
+        const products = [
+            {
+                id: 1, name: 'Mermelada de Frutillas', description: 'Clasico y Distinguido', price: 2500, originalPrice: null, discount: null, category: 'mermeladas', image: 'https://z-cdn-media.chatglm.cn/files/73927a7a-b535-4630-9caa-e15b8b561812.jpg', tag: 'Produccion Fresca'
+            },
+            {
+                id: 2, name: 'Mermelada de Duraznos', description: 'Dulce Cremoso y Aromatico', price: 2700, originalPrice: 3000, discount: 10, category: 'mermeladas', image: 'https://z-cdn-media.chatglm.cn/files/f053dde7-646c-4201-8e01-e55ee10f15f1.jpg', tag: '10% OFF'
+            },
+            {
+                id: 3, name: 'Mermelada de Moras', description: 'Reserva la tuya', price: 2800, originalPrice: null, discount: null, category: 'mermeladas', image: 'https://z-cdn-media.chatglm.cn/files/7e860dc5-7ca5-4ecc-93bc-7000c601ffc4.jpg', tag: 'Esta Semana'
+            },
+            {
+                id: 4, name: 'Dulce de Leche MariaVe', description: 'Elaborado a fuego lento', price: 3200, originalPrice: null, discount: null, category: 'postres', image: 'https://z-cdn-media.chatglm.cn/files/00ab3240-8922-40f5-922f-76e90e7762bc.jpg', tag: 'Mayo Patrio'
+            },
+            {
+                id: 5, name: 'Mermelada de Pimientos', description: 'Sabor diferente', price: 2600, originalPrice: 3050, discount: 15, category: 'mermeladas', image: 'https://z-cdn-media.chatglm.cn/files/cd483cf8-5399-45d2-aa45-08a1d30ec5f7.jpg', tag: '15% OFF'
+            },
+            {
+                id: 6, name: 'Pasta de Aceitunas', description: 'Ideal para tablas', price: 2900, originalPrice: 3200, discount: 10, category: 'conservas', image: 'https://z-cdn-media.chatglm.cn/files/eb8d5110-edff-4799-9a12-81b9ddb66aab.jpg', tag: '10% OFF'
+            },
+            {
+                id: 7, name: 'Ajos Confitados en Aceto', description: 'Solo para fanaticos', price: 2400, originalPrice: 2650, discount: 10, category: 'conservas', image: 'https://z-cdn-media.chatglm.cn/files/5dc5a7c1-7c20-4333-a2e6-e44991de95a0.jpg', tag: '10% OFF'
+            },
+            {
+                id: 8, name: 'Cebollas Moradas al Malbec', description: 'Acompanamiento ideal', price: 2500, originalPrice: 2800, discount: 10, category: 'conservas', image: 'https://z-cdn-media.chatglm.cn/files/43d40c0f-57ef-41a8-a6f9-64866af74cc6.jpg', tag: '10% OFF'
+            },
+            {
+                id: 9, name: 'Guiso de Lentejas', description: 'Sabores de Otono', price: 3500, originalPrice: null, discount: null, category: 'platos', image: 'https://z-cdn-media.chatglm.cn/files/156499a4-33f0-4c37-9053-d6e47a586a11.jpg', tag: 'Casero'
+            },
+            {
+                id: 10, name: 'Postres del Finde', description: 'Los elegidos', price: 2200, originalPrice: 2450, discount: 10, category: 'postres', image: 'https://z-cdn-media.chatglm.cn/files/c71d1451-3675-4d3a-a52b-ef833705f824.jpg', tag: '10% OFF'
+            }
+        ];
+        
+        const productsGrid = document.getElementById('productsGrid');
+        const categoryTabs = document.querySelectorAll('.category-tab');
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        function renderProducts(category) {
+            const filtered = category === 'todos' ? products : products.filter(p => p.category === category);
+            productsGrid.innerHTML = filtered.map((product, index) => `
+                <article class="product-card bg-white rounded-2xl shadow-lg overflow-hidden group" style="transition-delay: ${index * 0.05}s">
+                    <div class="img-container aspect-square relative">
+                        <img src="${product.image}" alt="${product.name}" class="product-image w-full h-full object-cover" loading="lazy">
+                        ${product.discount ? `<div class="discount-badge absolute top-4 right-4 px-3 py-1.5 rounded-full text-white text-sm font-bold">${product.discount}% OFF</div>` : ''}
+                        ${product.tag && !product.discount ? `<div class="absolute top-4 left-4 px-3 py-1.5 bg-forest/90 text-white text-xs font-semibold rounded-full">${product.tag}</div>` : ''}
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-display text-lg font-semibold text-charcoal mb-1">${product.name}</h3>
+                        <p class="text-sm text-muted mb-3">${product.description}</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-baseline gap-2">
+                                <span class="text-xl font-bold text-terracotta">$${product.price.toLocaleString()}</span>
+                                ${product.originalPrice ? `<span class="text-sm text-muted line-through">$${product.originalPrice.toLocaleString()}</span>` : ''}
+                            </div>
+                            <button onclick="orderProduct('${product.name}')" class="w-10 h-10 bg-forest text-white rounded-full flex items-center justify-center hover:bg-forestDark transition-colors" aria-label="Pedir ${product.name}">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            `).join('');
+            
+            setTimeout(() => { document.querySelectorAll('.product-card').forEach(card => card.classList.add('visible')); }, 100);
+        }
+
+        categoryTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                categoryTabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+                tab.classList.add('active'); tab.setAttribute('aria-selected', 'true');
+                renderProducts(tab.dataset.category);
+            });
+        });
+
+        function orderProduct(productName) {
+            const message = encodeURIComponent(`Hola! Me interesa pedir ${productName}. Me gustaria saber disponibilidad y precio.`);
+            window.open(`https://wa.me/5491112345678?text=${message}`, '_blank');
+        }
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts('todos');
+        });
+    </script>
+</body>
+</html>
