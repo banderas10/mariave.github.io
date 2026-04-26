@@ -5,18 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <title>María Ve Ideas y Sabores | Mermeladas Artesanales Caseras - Postres y Conservas</title>
-    <meta name="description" content="Mermeladas artesanales caseras, dulce de leche tradicional, postres caseros y conservas gourmet. Productos elaborados a fuego lento con ingredientes frescos. Hacé tu pedido hoy.">
-    <meta name="keywords" content="mermeladas caseras, mermelada artesanal, dulce de leche casero, postres caseros, conservas gourmet, mermelada de frutilla, mermelada de durazno, tortillas caseras, comida casera, productos artesanales">
+    <title>María Ve Ideas y Sabores | Mermeladas Artesanales Caseras</title>
+    <meta name="description" content="Mermeladas artesanales caseras, dulce de leche tradicional, postres caseros y conservas gourmet. Elaborados a fuego lento.">
+    <meta name="keywords" content="mermeladas caseras, mermelada artesanal, dulce de leche, postres caseros, conservas gourmet">
     <meta name="author" content="María Ve Ideas y Sabores">
-    <meta name="robots" content="index, follow">
-    <meta name="geo.region" content="AR">
-    <link rel="canonical" href="https://mariave.com.ar">
-    
-    <!-- Open Graph / Social -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="María Ve Ideas y Sabores | Mermeladas Artesanales Caseras">
-    <meta property="og:description" content="Mermeladas artesanales, dulce de leche tradicional y postres caseros. Elaborados a fuego lento con amor y tradición.">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,7 +28,6 @@
                         honey: '#C4882F',
                         honeyDark: '#9A6B1F',
                         terracotta: '#B85C38',
-                        burgundy: '#7B2D26',
                         forest: '#3D5A45',
                         forestDark: '#2A3D30',
                         sand: '#E8DCC8',
@@ -57,9 +48,6 @@
             --fg: #2C2C2C;
             --muted: #8B7355;
             --accent: #B85C38;
-            --accent-gold: #C4882F;
-            --card: #FFFFFF;
-            --border: #E8DCC8;
             --forest: #3D5A45;
         }
         
@@ -99,13 +87,7 @@
             100% { background-position: 200% 0; }
         }
         
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-        
         .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
-        .animate-float { animation: float 4s ease-in-out infinite; }
         .delay-100 { animation-delay: 0.1s; }
         .delay-200 { animation-delay: 0.2s; }
         .delay-300 { animation-delay: 0.3s; }
@@ -131,12 +113,9 @@
         .btn-primary {
             background: linear-gradient(135deg, var(--forest) 0%, #2A3D30 100%);
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
         
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(61, 90, 69, 0.3); }
-        .btn-primary:focus-visible { outline: 3px solid var(--accent-gold); outline-offset: 2px; }
         
         .nav-link { position: relative; }
         .nav-link::after {
@@ -151,19 +130,9 @@
         }
         .nav-link:hover::after { width: 100%; }
         
-        .hero-decoration {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.4;
-            pointer-events: none;
-        }
-        
         .category-tab { transition: all 0.3s ease; }
         .category-tab.active { background: var(--forest); color: white; }
-        .category-tab:not(.active):hover { background: var(--sand); }
+        .category-tab:not(.active):hover { background: #E8DCC8; }
         
         .whatsapp-float {
             position: fixed;
@@ -186,32 +155,41 @@
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-md border-b border-sand">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16 sm:h-20">
-                <!-- Logo -->
+            <div class="flex items-center justify-between h-20 sm:h-24">
+                <!-- Logo GRANDE -->
                 <a href="#inicio" class="flex items-center gap-3 group">
-                    <!-- LOGO SVG MARIA VE IDEAS Y SABORES -->
-                    <div class="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
-                        <svg viewBox="0 0 100 100" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="50" cy="50" r="48" fill="#3D5A45" stroke="#C4882F" stroke-width="3"/>
-                            <circle cx="50" cy="50" r="40" stroke="#FDF6E9" stroke-width="1" stroke-dasharray="4 4"/>
+                    <div class="w-28 h-16 sm:w-36 sm:h-20 flex items-center justify-center">
+                        <svg viewBox="0 0 180 90" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Sombra suave -->
                             <defs>
-                                <path id="circlePath" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"/>
+                                <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+                                </filter>
                             </defs>
-                            <text fill="#FDF6E9" font-size="9" font-family="'Playfair Display', serif" font-weight="600" letter-spacing="2">
-                                <textPath href="#circlePath" startOffset="10%">MARIA VE</textPath>
+                            
+                            <!-- Forma Ovalada de Etiqueta -->
+                            <rect x="2" y="2" width="176" height="86" rx="43" fill="#FDF6E9" stroke="#C4882F" stroke-width="3" filter="url(#shadow)"/>
+                            
+                            <!-- Línea decorativa superior -->
+                            <path d="M35 22 Q90 32 145 22" stroke="#3D5A45" stroke-width="2" fill="none" opacity="0.6"/>
+                            
+                            <!-- Texto Principal: MARIA VE -->
+                            <text x="90" y="50" fill="#3D5A45" font-size="28" font-family="'Playfair Display', serif" font-weight="800" text-anchor="middle" letter-spacing="2">
+                                MARIA VE
                             </text>
-                            <g transform="translate(35, 38)">
-                                <path d="M15 0 C25 10, 25 25, 15 30 C5 25, 5 10, 15 0Z" fill="#C4882F"/>
-                                <path d="M15 5 L15 25" stroke="#3D5A45" stroke-width="1.5"/>
-                            </g>
-                            <text x="50" y="78" fill="#FDF6E9" font-size="6" font-family="'DM Sans', sans-serif" text-anchor="middle" letter-spacing="0.5">
+                            
+                            <!-- Línea decorativa bajo el nombre -->
+                            <line x1="40" y1="60" x2="140" y2="60" stroke="#C4882F" stroke-width="2"/>
+                            
+                            <!-- Texto Secundario: IDEAS Y SABORES -->
+                            <text x="90" y="74" fill="#8B7355" font-size="10" font-family="'DM Sans', sans-serif" text-anchor="middle" letter-spacing="3" font-weight="600">
                                 IDEAS Y SABORES
                             </text>
+                            
+                            <!-- Puntos decorativos -->
+                            <circle cx="35" cy="60" r="3" fill="#C4882F"/>
+                            <circle cx="145" cy="60" r="3" fill="#C4882F"/>
                         </svg>
-                    </div>
-                    <div class="hidden sm:block">
-                        <span class="font-display text-lg sm:text-xl font-semibold text-charcoal">Maria Ve</span>
-                        <span class="block text-xs text-muted -mt-1">Ideas y Sabores</span>
                     </div>
                 </a>
                 
@@ -248,10 +226,7 @@
     </nav>
     
     <!-- Hero Section -->
-    <header id="inicio" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        <div class="hero-decoration bg-honey/30 top-20 -left-20"></div>
-        <div class="hero-decoration bg-terracotta/20 bottom-20 right-0"></div>
-        
+    <header id="inicio" class="relative min-h-screen flex items-center pt-24 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                 <div class="text-center lg:text-left">
@@ -285,7 +260,7 @@
                 <!-- Hero Image -->
                 <div class="relative animate-fade-in-up opacity-0 delay-400">
                     <div class="relative rounded-3xl overflow-hidden shadow-2xl">
-                        <img src="https://z-cdn-media.chatglm.cn/files/00ab3240-8922-40f5-922f-76e90e7762bc.jpg" alt="Dulce de Leche artesanal MariaVe" class="w-full h-[400px] sm:h-[500px] object-cover" loading="eager">
+                        <img src="https://z-cdn-media.chatglm.cn/files/00ab3240-8922-40f5-922f-76e90e7762bc.jpg" alt="Dulce de Leche artesanal" class="w-full h-[400px] sm:h-[500px] object-cover" loading="eager">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                         
                         <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
@@ -311,7 +286,7 @@
             <div class="text-center mb-12">
                 <span class="inline-block px-4 py-1.5 bg-honey/10 text-honeyDark text-sm font-semibold rounded-full mb-4">Catalogo de Productos</span>
                 <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal">Elaborados con pasion</h2>
-                <p class="mt-4 text-muted text-lg max-w-2xl mx-auto">Cada producto es elaborado artesanalmente con ingredientes frescos y de primera calidad</p>
+                <p class="mt-4 text-muted text-lg max-w-2xl mx-auto">Cada producto es elaborado artesanalmente con ingredientes frescos</p>
             </div>
             
             <!-- Category filters -->
@@ -369,19 +344,18 @@
     <!-- Footer -->
     <footer class="bg-charcoal py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="flex items-center justify-center gap-3 mb-4">
-                <div class="w-8 h-8">
-                     <svg viewBox="0 0 100 100" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="50" cy="50" r="48" fill="#3D5A45" stroke="#C4882F" stroke-width="3"/>
-                        <text x="50" y="55" fill="#FDF6E9" font-size="24" font-family="'Playfair Display', serif" font-weight="700" text-anchor="middle">MV</text>
+            <div class="flex items-center justify-center mb-4">
+                <!-- Logo Footer -->
+                <div class="w-32 h-16 flex items-center justify-center">
+                    <svg viewBox="0 0 180 90" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="2" width="176" height="86" rx="43" fill="#FDF6E9" stroke="#C4882F" stroke-width="3"/>
+                        <text x="90" y="50" fill="#3D5A45" font-size="28" font-family="'Playfair Display', serif" font-weight="800" text-anchor="middle" letter-spacing="2">MARIA VE</text>
+                        <line x1="40" y1="60" x2="140" y2="60" stroke="#C4882F" stroke-width="2"/>
+                        <text x="90" y="74" fill="#8B7355" font-size="10" font-family="'DM Sans', sans-serif" text-anchor="middle" letter-spacing="3" font-weight="600">IDEAS Y SABORES</text>
                     </svg>
                 </div>
-                <div>
-                    <span class="text-white font-display text-lg font-semibold">Maria Ve</span>
-                    <span class="block text-white/60 text-xs">Ideas y Sabores</span>
-                </div>
             </div>
-            <p class="text-white/40 text-sm">2024 Maria Ve Ideas y Sabores. Todos los derechos reservados.</p>
+            <p class="text-white/60 text-sm">2024 Maria Ve Ideas y Sabores. Todos los derechos reservados.</p>
         </div>
     </footer>
     
@@ -391,38 +365,18 @@
     </a>
     
     <script>
-        // DATA - Productos
+        // DATA - Productos (Recuerda cambiar las URLs por tus fotos reales)
         const products = [
-            {
-                id: 1, name: 'Mermelada de Frutillas', description: 'Clasico y Distinguido', price: 2500, originalPrice: null, discount: null, category: 'mermeladas', image: 'https://z-cdn-media.chatglm.cn/files/73927a7a-b535-4630-9caa-e15b8b561812.jpg', tag: 'Produccion Fresca'
-            },
-            {
-                id: 2, name: 'Mermelada de Duraznos', description: 'Dulce Cremoso y Aromatico', price: 2700, originalPrice: 3000, discount: 10, category: 'mermeladas', image: 'https://z-cdn-media.chatglm.cn/files/f053dde7-646c-4201-8e01-e55ee10f15f1.jpg', tag: '10% OFF'
-            },
-            {
-                id: 3, name: 'Mermelada de Moras', description: 'Reserva la tuya', price: 2800, originalPrice: null, discount: null, category: 'mermeladas', image: 'https://z-cdn-media.chatglm.cn/files/7e860dc5-7ca5-4ecc-93bc-7000c601ffc4.jpg', tag: 'Esta Semana'
-            },
-            {
-                id: 4, name: 'Dulce de Leche MariaVe', description: 'Elaborado a fuego lento', price: 3200, originalPrice: null, discount: null, category: 'postres', image: 'https://z-cdn-media.chatglm.cn/files/00ab3240-8922-40f5-922f-76e90e7762bc.jpg', tag: 'Mayo Patrio'
-            },
-            {
-                id: 5, name: 'Mermelada de Pimientos', description: 'Sabor diferente', price: 2600, originalPrice: 3050, discount: 15, category: 'mermeladas', image: 'https://z-cdn-media.chatglm.cn/files/cd483cf8-5399-45d2-aa45-08a1d30ec5f7.jpg', tag: '15% OFF'
-            },
-            {
-                id: 6, name: 'Pasta de Aceitunas', description: 'Ideal para tablas', price: 2900, originalPrice: 3200, discount: 10, category: 'conservas', image: 'https://z-cdn-media.chatglm.cn/files/eb8d5110-edff-4799-9a12-81b9ddb66aab.jpg', tag: '10% OFF'
-            },
-            {
-                id: 7, name: 'Ajos Confitados en Aceto', description: 'Solo para fanaticos', price: 2400, originalPrice: 2650, discount: 10, category: 'conservas', image: 'https://z-cdn-media.chatglm.cn/files/5dc5a7c1-7c20-4333-a2e6-e44991de95a0.jpg', tag: '10% OFF'
-            },
-            {
-                id: 8, name: 'Cebollas Moradas al Malbec', description: 'Acompanamiento ideal', price: 2500, originalPrice: 2800, discount: 10, category: 'conservas', image: 'https://z-cdn-media.chatglm.cn/files/43d40c0f-57ef-41a8-a6f9-64866af74cc6.jpg', tag: '10% OFF'
-            },
-            {
-                id: 9, name: 'Guiso de Lentejas', description: 'Sabores de Otono', price: 3500, originalPrice: null, discount: null, category: 'platos', image: 'https://z-cdn-media.chatglm.cn/files/156499a4-33f0-4c37-9053-d6e47a586a11.jpg', tag: 'Casero'
-            },
-            {
-                id: 10, name: 'Postres del Finde', description: 'Los elegidos', price: 2200, originalPrice: 2450, discount: 10, category: 'postres', image: 'https://z-cdn-media.chatglm.cn/files/c71d1451-3675-4d3a-a52b-ef833705f824.jpg', tag: '10% OFF'
-            }
+            { id: 1, name: 'Mermelada de Frutillas', description: 'Clasico y Distinguido', price: 2500, originalPrice: null, discount: null, category: 'mermeladas', image: 'https://z-cdn-media.chatglm.cn/files/73927a7a-b535-4630-9caa-e15b8b561812.jpg', tag: 'Produccion Fresca' },
+            { id: 2, name: 'Mermelada de Duraznos', description: 'Dulce Cremoso y Aromatico', price: 2700, originalPrice: 3000, discount: 10, category: 'mermeladas', image: 'https://z-cdn-media.chatglm.cn/files/f053dde7-646c-4201-8e01-e55ee10f15f1.jpg', tag: '10% OFF' },
+            { id: 3, name: 'Mermelada de Moras', description: 'Reserva la tuya', price: 2800, originalPrice: null, discount: null, category: 'mermeladas', image: 'https://z-cdn-media.chatglm.cn/files/7e860dc5-7ca5-4ecc-93bc-7000c601ffc4.jpg', tag: 'Esta Semana' },
+            { id: 4, name: 'Dulce de Leche MariaVe', description: 'Elaborado a fuego lento', price: 3200, originalPrice: null, discount: null, category: 'postres', image: 'https://z-cdn-media.chatglm.cn/files/00ab3240-8922-40f5-922f-76e90e7762bc.jpg', tag: 'Mayo Patrio' },
+            { id: 5, name: 'Mermelada de Pimientos', description: 'Sabor diferente', price: 2600, originalPrice: 3050, discount: 15, category: 'mermeladas', image: 'https://z-cdn-media.chatglm.cn/files/cd483cf8-5399-45d2-aa45-08a1d30ec5f7.jpg', tag: '15% OFF' },
+            { id: 6, name: 'Pasta de Aceitunas', description: 'Ideal para tablas', price: 2900, originalPrice: 3200, discount: 10, category: 'conservas', image: 'https://z-cdn-media.chatglm.cn/files/eb8d5110-edff-4799-9a12-81b9ddb66aab.jpg', tag: '10% OFF' },
+            { id: 7, name: 'Ajos Confitados en Aceto', description: 'Solo para fanaticos', price: 2400, originalPrice: 2650, discount: 10, category: 'conservas', image: 'https://z-cdn-media.chatglm.cn/files/5dc5a7c1-7c20-4333-a2e6-e44991de95a0.jpg', tag: '10% OFF' },
+            { id: 8, name: 'Cebollas Moradas al Malbec', description: 'Acompanamiento ideal', price: 2500, originalPrice: 2800, discount: 10, category: 'conservas', image: 'https://z-cdn-media.chatglm.cn/files/43d40c0f-57ef-41a8-a6f9-64866af74cc6.jpg', tag: '10% OFF' },
+            { id: 9, name: 'Guiso de Lentejas', description: 'Sabores de Otono', price: 3500, originalPrice: null, discount: null, category: 'platos', image: 'https://z-cdn-media.chatglm.cn/files/156499a4-33f0-4c37-9053-d6e47a586a11.jpg', tag: 'Casero' },
+            { id: 10, name: 'Postres del Finde', description: 'Los elegidos', price: 2200, originalPrice: 2450, discount: 10, category: 'postres', image: 'https://z-cdn-media.chatglm.cn/files/c71d1451-3675-4d3a-a52b-ef833705f824.jpg', tag: '10% OFF' }
         ];
         
         const productsGrid = document.getElementById('productsGrid');
